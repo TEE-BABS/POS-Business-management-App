@@ -1,5 +1,7 @@
 import React from 'react'
 import './LoginForm.css'
+import { Link } from 'react-router-dom'
+import AdminDashboard from '../AdminPage/AdminDashboard'
 
 function LoginForm() {
   const BusinessName = "B.O.B Enterprise"
@@ -14,27 +16,21 @@ function LoginForm() {
         </div>
        <div className="form-container">
         <div className="form-select">
+          <div className="select-role-container">
           <p>Select Role : 
-            <select name="dropdown" id="">
-              <option value="">Select Role</option>
-              <option value="Admin">Admin</option>
-              <option value="Agent">Agent</option>
-            </select>
-            </p>   
-          <p>Select Agent :
-            <select name="Branches" id="">
-              <option value="Branch 1"></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-            </select>
+            <button>Admin</button>
+            <button>Agent</button>
+            <p><input type="text" /></p>
+            
+            </p>  
+            </div>
+           <div className="branch-container"> 
+          <p> Branches :
+            <button>Select Branch</button>
+             <input type="text" />
           </p>
+          
+          </div> 
         </div>
           
           <div className="form-input">
@@ -58,7 +54,7 @@ function LoginForm() {
 
       </div>
 
-      
+      <Link to={'/AdminDashboard'}></Link>
       
     </div>
   )
