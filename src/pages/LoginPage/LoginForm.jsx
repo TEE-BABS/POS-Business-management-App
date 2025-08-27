@@ -1,14 +1,31 @@
 import React from 'react'
+import { useState } from 'react'
 import './LoginForm.css'
 import { Link } from 'react-router-dom'
 import AdminDashboard from '../AdminPage/AdminDashboard'
 
+
 function LoginForm() {
   const BusinessName = "B.O.B Enterprise"
+  const [inputValue, setInputValue] = useState('')
+  const [inputBranch, setInputBranch] = useState("")
+  const [isReadOnly, setIsReadOnly] = useState('false')
+
+  const handleButtonClick =(inputText)=>{
+    setInputValue(inputText);
+    setIsReadOnly(true)
+
+  };
+   const handleBranchClick = (Text)=>{
+   setInputBranch(Text)
+   setIsReadOnly(true)
+   
+  };
 
   return (
 
     <div className='container'>
+      <div className="sub-container">
       <div className='welcomePage'>
         <h1>Welcome To {BusinessName}</h1>
         <div className='dashboard-header'>
@@ -18,16 +35,18 @@ function LoginForm() {
         <div className="form-select">
           <div className="select-role-container">
           <p>Select Role : 
-            <button>Admin</button>
-            <button>Agent</button>
-            <p><input type="text" /></p>
+            <button onClick={()=>{handleButtonClick("Admin")}}>Admin</button>
+            <button onClick={()=>{handleButtonClick("Agent")}}>Agent</button>
+            <p>
+              <input type="text" value={inputValue} readOnly = {isReadOnly} style={{textAlign:"center"}}/>
+            </p>
             
             </p>  
             </div>
            <div className="branch-container"> 
           <p> Branches :
             <button>Select Branch</button>
-             <input type="text" />
+             <input type="text"value= {inputBranch} readOnly = {isReadOnly} style={{textAlign: "center"}}/>
           </p>
           
           </div> 
@@ -47,16 +66,31 @@ function LoginForm() {
           </div>
           
        </div>
-   
-          
-        
-
-
       </div>
-
-      <Link to={'/AdminDashboard'}></Link>
+      </div>
       
+     <div className='branch-box'>
+      <h3>Select Branch</h3>
+     <div className="branch-list-container">
+      <button onClick={()=>{handleBranchClick("Branch 1")}}>Branch 1</button>
+      <button onClick={()=>{handleBranchClick("Branch 2")}}>Branch 2</button>
+      <button onClick={()=>{handleBranchClick("Branch 3")}}>Branch 3</button>
+      <button onClick={()=>{handleBranchClick("Branch 4")}}>Branch 4</button>
+      <button onClick={()=>{handleBranchClick("Branch 5")}}>Branch 5</button>
+      <button onClick={()=>{handleBranchClick("Branch 6")}}>Branch 6</button>
+      <button onClick={()=>{handleBranchClick("Branch 7")}}>Branch 7</button>
+      <button onClick={()=>{handleBranchClick("Branch 8")}}>Branch 8</button>
+      <button onClick={()=>{handleBranchClick("Branch 9")}}>Branch 9</button>
+      <button onClick={()=>{handleBranchClick("Branch 10")}}>Branch 10</button>
+     </div>
+     
     </div>
+
+    </div>
+ 
+
+
+ 
   )
 }
 
