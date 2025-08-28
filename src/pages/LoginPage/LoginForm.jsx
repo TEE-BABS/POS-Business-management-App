@@ -7,8 +7,9 @@ import AdminDashboard from '../AdminPage/AdminDashboard'
 
 function LoginForm() {
   const BusinessName = "B.O.B Enterprise"
-  const [inputValue, setInputValue] = useState('')
-  const [inputBranch, setInputBranch] = useState("")
+  const [inputValue, setInputValue] = useState('');
+  const [inputBranch, setInputBranch] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
   const [isReadOnly, setIsReadOnly] = useState('false')
 
   const handleButtonClick =(inputText)=>{
@@ -21,10 +22,14 @@ function LoginForm() {
    setIsReadOnly(true)
    
   };
+  const toggleVisibility = ()=>{
+   setIsVisible(!isVisible);
+  };
 
   return (
-
-    <div className='container'>
+   
+     <div className="general-container">
+    
       <div className="sub-container">
       <div className='welcomePage'>
         <h1>Welcome To {BusinessName}</h1>
@@ -45,7 +50,8 @@ function LoginForm() {
             </div>
            <div className="branch-container"> 
           <p> Branches :
-            <button>Select Branch</button>
+            <button onClick={toggleVisibility}>Select Branch</button>
+
              <input type="text"value= {inputBranch} readOnly = {isReadOnly} style={{textAlign: "center"}}/>
           </p>
           
@@ -67,11 +73,12 @@ function LoginForm() {
           
        </div>
       </div>
-      </div>
+     </div>
       
+      {isVisible &&(
      <div className='branch-box'>
       <h3>Select Branch</h3>
-     <div className="branch-list-container">
+     <div className="branch-list-container" >
       <button onClick={()=>{handleBranchClick("Branch 1")}}>Branch 1</button>
       <button onClick={()=>{handleBranchClick("Branch 2")}}>Branch 2</button>
       <button onClick={()=>{handleBranchClick("Branch 3")}}>Branch 3</button>
@@ -83,15 +90,21 @@ function LoginForm() {
       <button onClick={()=>{handleBranchClick("Branch 9")}}>Branch 9</button>
       <button onClick={()=>{handleBranchClick("Branch 10")}}>Branch 10</button>
      </div>
-     
+      
     </div>
 
-    </div>
- 
+ )}
 
 
- 
+
+</div>
+
+
+
+
   )
+
 }
+
 
 export default LoginForm
