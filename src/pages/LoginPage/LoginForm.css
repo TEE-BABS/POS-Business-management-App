@@ -1,7 +1,9 @@
 .general-container{
   display: flex;
+  background-color: beige;
 }
 .sub-container{
+  
   border-radius: 20px;
   width: 500px;
   display: flex;
@@ -155,6 +157,7 @@ box-shadow:
     right: 80px;
 }
 .branch-box h3{
+  color: white;
 display: flex;
 justify-content: center;
 }

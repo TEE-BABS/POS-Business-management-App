@@ -79,6 +79,7 @@ function LoginForm() {
      <div className='branch-box'>
       <h3>Select Branch</h3>
      <div className="branch-list-container" >
+       <button onClick={()=>{handleBranchClick("Admin")}}>--- Admin ---</button>
       <button onClick={()=>{handleBranchClick("Branch 1")}}>Branch 1</button>
       <button onClick={()=>{handleBranchClick("Branch 2")}}>Branch 2</button>
       <button onClick={()=>{handleBranchClick("Branch 3")}}>Branch 3</button>

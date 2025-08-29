@@ -1,16 +1,7 @@
-*{
-  margin: 0;
-  padding:0;
-  /* position: relative; */
-}
-.sidebar{
-  position: fixed;
-  top: 0px;
-}
-.loginPage{
+/* .homePage{
+  background-image: url(/src/Images/bgimage-Customer.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} 
+} */
